@@ -175,6 +175,7 @@
                 display: flex;
                 align-items: center;
                 height: 40px;
+                justify-content: center;
 
                 @include mixins.respond-max(md) {
                     display: none;
@@ -206,6 +207,9 @@
                     border-radius: 0 2px 2px 0;
                     cursor: pointer;
                     height: 40px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
 
                     @include mixins.respond-max(md) {
                         display: none;
