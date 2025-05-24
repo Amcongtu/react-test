@@ -1,0 +1,220 @@
+@use "../../../assets/styles/mixins" as mixins;
+@use "../../../assets/styles/variables" as variables;
+
+.header {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+
+    .topbarContainer {
+        background-color: #7e33e0;
+
+        // Hide topbar on md and below
+        @include mixins.respond-max(md) {
+            display: none;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            font-size: 13px;
+            color: white;
+
+            .left,
+            .right {
+                display: flex;
+                align-items: center;
+                gap: 32px;
+
+                >div {
+                    display: flex;
+                    gap: 16px;
+                    align-items: center;
+
+                    >span {
+                        margin-right: 12px;
+                    }
+
+                    div {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                    }
+                }
+            }
+        }
+    }
+
+    .mainHeaderContainer {
+        background-color: white;
+
+        .mainHeader {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+
+            @include mixins.respond-max(md) {
+                padding: 0;
+            }
+
+            .left {
+                display: flex;
+                gap: 76px;
+                align-items: center;
+
+                @include mixins.respond-max(md) {
+                    width: 100%;
+                }
+
+                .barIconLogoContainer {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+
+                    @include mixins.respond-max(md) {
+                        justify-content: space-between;
+                        width: 100%;
+                        padding: variables.$spacing-4;
+                    }
+
+                    .barIcon {
+                        display: none;
+                        color: black;
+                        font-size: large;
+
+                        @include mixins.respond-max(md) {
+                            display: block !important;
+                        }
+                    }
+
+                    .logo h1 {
+                        font-size: 34px;
+                        font-weight: 700;
+                        line-height: 100%;
+                        letter-spacing: 0;
+                        color: #0D0E43;
+
+                        // Smaller logo text on small devices
+                        @include mixins.respond-max(md) {
+                            font-size: 30px;
+                        }
+                    }
+
+                    .barIconLogoContainerRight {
+                        display: none;
+
+                        @include mixins.respond-max(md) {
+                            display: flex;
+                            align-items: center;
+                            gap: 16px;
+                            font-size: large;
+                        }
+                    }
+                }
+
+
+                .nav {
+                    @include mixins.respond-max(md) {
+                        display: none;
+                    }
+                }
+
+                .nav ul {
+                    display: flex;
+                    gap: 35px;
+                    list-style: none;
+
+
+
+                    li {
+                        color: #1a0b5b;
+                        cursor: pointer;
+                        transition: color 0.2s;
+
+                        &.active {
+                            color: #FB2E86;
+                        }
+
+                        &:hover {
+                            color: #FB2E86;
+                        }
+                    }
+
+                    // Stack nav items vertically on small screens
+                    @include mixins.respond-max(sm) {
+                        flex-direction: column;
+                        gap: 12px;
+                    }
+
+                    // Hide nav on very small screens, maybe replaced by hamburger menu
+                    @include mixins.respond-max(xs) {
+                        display: none;
+                    }
+                }
+            }
+
+            .search {
+                display: flex;
+                align-items: center;
+                height: 40px;
+
+                @include mixins.respond-max(md) {
+                    display: none;
+                }
+
+                input {
+                    border: 1px solid #ccc;
+                    padding: 8px 12px;
+                    border-radius: 2px 0 0 2px;
+                    outline: none;
+                    height: 40px;
+                    width: 286px;
+
+                    // Smaller input width on medium devices
+                    @include mixins.respond-max(lg) {
+                        display: none;
+                    }
+
+                    // Hide input on very small devices, keep only search button?
+                    @include mixins.respond-max(xs) {
+                        display: none;
+                    }
+                }
+
+                button {
+                    background-color: #FB2E86;
+                    border: none;
+                    padding: 9px 12px;
+                    border-radius: 0 2px 2px 0;
+                    cursor: pointer;
+                    height: 40px;
+
+                    @include mixins.respond-max(md) {
+                        display: none;
+                    }
+
+                    svg {
+                        color: white;
+                        font-size: 14px;
+                    }
+
+                    // Adjust button size on small devices
+                    @include mixins.respond-max(sm) {
+                        padding: 9px 8px;
+                    }
+                }
+            }
+        }
+
+        // Stack mainHeader children vertically on small screens
+        @include mixins.respond-max(sm) {
+            .mainHeader {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+        }
+    }
+}

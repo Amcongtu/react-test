@@ -1,0 +1,98 @@
+// Import Sass map module for map functions like map.get()
+@use 'sass:map';
+// Import your variables module
+@use 'variables';
+
+// Mixin for responsive media queries with min and max width ranges
+@mixin respond($breakpoint) {
+    // Get the breakpoints map from variables
+    $breakpoints: variables.$breakpoints;
+
+    // For small breakpoint (sm), apply styles between xs and md-1px
+    @if $breakpoint ==sm {
+        @media (min-width: #{map.get($breakpoints, xs)}) and (max-width: #{map.get($breakpoints, md) - 1px}) {
+            @content;
+        }
+    }
+
+    // For medium breakpoint (md), apply styles between md and lg-1px
+    @else if $breakpoint ==md {
+        @media (min-width: #{map.get($breakpoints, md)}) and (max-width: #{map.get($breakpoints, lg) - 1px}) {
+            @content;
+        }
+    }
+
+    // For large breakpoint (lg), apply styles between lg and xl-1px
+    @else if $breakpoint ==lg {
+        @media (min-width: #{map.get($breakpoints, lg)}) and (max-width: #{map.get($breakpoints, xl) - 1px}) {
+            @content;
+        }
+    }
+
+    // For extra large breakpoint (xl), apply styles between xl and 2xl-1px
+    @else if $breakpoint ==xl {
+        @media (min-width: #{map.get($breakpoints, xl)}) and (max-width: #{map.get($breakpoints, 2xl) - 1px}) {
+            @content;
+        }
+    }
+
+    // For 2xl breakpoint and above, apply styles from 2xl and up
+    @else if $breakpoint ==2xl {
+        @media (min-width: #{map.get($breakpoints, 2xl)}) {
+            @content;
+        }
+    }
+
+    // Warn if breakpoint is not found in the map
+    @else {
+        @warn "Breakpoint `#{$breakpoint}` does not exist in map \$breakpoints.";
+    }
+}
+
+// Mixin for minimum width media query only
+@mixin respond-min($breakpoint) {
+    $breakpoints: variables.$breakpoints;
+
+    // Check if the breakpoint exists in the map
+    @if map.has-key($breakpoints, $breakpoint) {
+        @media (min-width: #{map.get($breakpoints, $breakpoint)}) {
+            @content;
+        }
+    }
+
+    // Warn if breakpoint is invalid
+    @else {
+        @warn "Breakpoint `#{$breakpoint}` does not exist in map \$breakpoints.";
+    }
+}
+
+// Mixin for maximum width media query only
+@mixin respond-max($breakpoint) {
+    $breakpoints: variables.$breakpoints;
+
+    // Check if the breakpoint exists in the map
+    @if map.has-key($breakpoints, $breakpoint) {
+        @media (max-width: #{map.get($breakpoints, $breakpoint)}) {
+            @content;
+        }
+    }
+
+    // Warn if breakpoint is invalid
+    @else {
+        @warn "Breakpoint `#{$breakpoint}` does not exist in map \$breakpoints.";
+    }
+}
+
+// Mixin for flexbox centering both horizontally and vertically
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// Mixin to truncate overflowing text with ellipsis
+@mixin ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

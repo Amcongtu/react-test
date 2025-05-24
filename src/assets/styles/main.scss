@@ -1,0 +1,37 @@
+@use "variables";
+@use "mixins";
+@use "reset";
+@use 'fonts';
+
+body {
+    font-family: fonts.$font-primary;
+    font-size: variables.$font-base
+}
+
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: variables.$spacing-4;
+    padding-right: variables.$spacing-4;
+
+    @include mixins.respond(sm) {
+        max-width: variables.$screen-max-width-sm;
+    }
+
+    @include mixins.respond(md) {
+        max-width: variables.$screen-max-width-md;
+    }
+
+    @include mixins.respond(lg) {
+        max-width: variables.$screen-max-width-lg;
+    }
+
+    @include mixins.respond(xl) {
+        max-width: variables.$screen-max-width-xl;
+    }
+
+    @include mixins.respond(2xl) {
+        max-width: variables.$screen-max-width-2xl;
+    }
+}
