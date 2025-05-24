@@ -109,3 +109,43 @@
         }
     }
 }
+
+.expand {
+    background-color: #E7E4F8;
+    color: #9DA0AE;
+
+    >div {
+        padding: 12px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include mixins.respond-max(md) {
+            padding: 12px;
+        }
+    }
+}
+
+.socialIcons {
+    display: flex;
+    gap: 16px;
+
+    button {
+        background-color: #19146D;
+        border: none;
+        border-radius: 50%;
+        width: 22px;
+        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 12px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: darken(#19146D, 10%);
+        }
+    }
+}
