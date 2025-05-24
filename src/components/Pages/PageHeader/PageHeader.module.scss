@@ -1,0 +1,17 @@
+@use "../../../assets/styles/variables" as variables;
+
+.pageHeader {
+    background-color: #F6F5FF;
+    height: 286px;
+    display: flex;
+    align-items: center;
+
+    >div>h1 {
+        font-size: 36px;
+        color: variables.$color-secondary;
+    }
+
+    >div>p>span:last-child {
+        color: variables.$color-primary;
+    }
+}

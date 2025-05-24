@@ -1,5 +1,6 @@
 import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
+import Pages from "./pages/Pages";
 
 const routes = [
     {
@@ -15,10 +16,10 @@ const routes = [
                 element: <Home />,
             },
             {
-                path: "gioi-thieu",
-                name: "Giới thiệu",
-                key: "about",
-                element: <Home />,
+                path: "pages",
+                name: "Pages",
+                key: "pages",
+                element: <Pages />,
             },
             {
                 path: "dich-vu",

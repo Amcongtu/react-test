@@ -4,11 +4,22 @@ import { FaEnvelope, FaPhone, FaUser, FaHeart, FaShoppingCart, FaSearch, FaBars 
 import Sidebar from "../ClientSideBar/ClientSideBar";
 import SearchModal from "../SearchModal/SearchModal";
 import { useDisclosure } from "../../../hooks/useDisclosure";
+import { useLocation } from "react-router-dom";
+import routes from "../../../routes";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const { isOpen: isOpenSearchModal, onClose: onCloseSearchModal, onToggle: onToggleSeachModal } = useDisclosure();
+    const location = useLocation();
 
+    const mainLayout = routes.find(r => r.key === "main-layout");
+    const navItems = mainLayout?.children?.filter(route => route.name);
+
+    const getFullPath = (path?: string) => {
+        if (!path) return "/";
+        return `/${path}`;
+    };
     return (
         <>
             <header className={styles.header}>
@@ -58,12 +69,19 @@ const Header = () => {
                             </div>
                             <nav className={styles.nav}>
                                 <ul>
-                                    <li className={styles.active}>Home ▾</li>
-                                    <li>Pages</li>
-                                    <li>Products</li>
-                                    <li>Blog</li>
-                                    <li>Shop</li>
-                                    <li>Contact</li>
+                                    {navItems?.map(item => {
+                                        const fullPath = getFullPath(item.path);
+                                        const isActive = location.pathname === fullPath;
+
+                                        return (
+                                            <li
+                                                key={item.key}
+                                                className={isActive ? styles.active : ""}
+                                            >
+                                                <Link to={fullPath}>{item.name} {isActive && '▾'}</Link>
+                                            </li>
+                                        );
+                                    })}
                                 </ul>
                             </nav>
                         </div>
