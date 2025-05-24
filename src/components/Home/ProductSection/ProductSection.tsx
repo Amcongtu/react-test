@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ProductCard from '../ProductCard/ProductCard';
 import styles from './ProductSection.module.scss';
 import type { Product } from '../../../types/product';
+import { AnimatePresence, motion } from 'framer-motion';
 
 interface Props {
     title: string;
@@ -48,11 +49,20 @@ const ProductSection: React.FC<Props> = ({ title, products }) => {
                 ))}
             </div>
 
-            <div className={styles.grid}>
-                {displayedProducts.map((product) => (
-                    <ProductCard key={product.id} product={product} />
-                ))}
-            </div>
+            <AnimatePresence mode="wait">
+                <motion.div
+                    key={activeTab}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                    className={styles.grid}
+                >
+                    {displayedProducts.map((product) => (
+                        <ProductCard key={product.id} product={product} />
+                    ))}
+                </motion.div>
+            </AnimatePresence>
 
             {filteredProducts.length > visibleCount && (
                 <div className={styles.more}>
