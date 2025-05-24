@@ -1,0 +1,80 @@
+@use "../../../assets/styles/mixins" as mixins;
+@use "../../../assets/styles/variables" as variables;
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 99;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+
+    @include mixins.respond-min(md) {
+        display: none;
+    }
+}
+
+.overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 85%;
+    background: #fff;
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+
+    @include mixins.respond-min(md) {
+        display: none;
+    }
+
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #dfdada;
+
+    padding: 1rem 1.5rem;
+}
+
+.closeIcon {
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.menu {
+    list-style: none;
+    padding: 0 1.5rem;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    li {
+        font-size: 1.1rem;
+        cursor: pointer;
+
+        &:hover {
+            color: #7E33E0;
+        }
+
+        &.active {
+            font-weight: bold;
+            color: #7E33E0;
+        }
+    }
+
+}
