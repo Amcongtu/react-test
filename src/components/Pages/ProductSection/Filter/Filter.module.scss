@@ -1,0 +1,89 @@
+.filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 120px;
+
+    >div>h2 {
+        font-size: 22px;
+        color: #151875;
+        font-weight: 700;
+    }
+    span {
+        color: #8A8FB9;
+        font-size: 12px;
+    }
+}
+
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+    padding: 1rem 0;
+    font-size: 14px;
+    color: #3F509E;
+
+    .item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .perPage {
+            padding: 0.4rem 0.6rem;
+            width: 55px !important;
+            height: 28px !important;
+            border: 1px solid #E7E6EF;
+            color: #8A8FB9;
+        }
+
+        .sortBy {
+            height: 28px !important;
+            border: 1px solid #E7E6EF;
+            width: 156px !important;
+            color: #8A8FB9;
+            padding: 0.4rem 0.6rem;
+        }
+
+        label {
+            white-space: nowrap;
+        }
+
+
+
+        .iconButton {
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            color: #3f3f7a;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                color: #ff497c;
+            }
+        }
+
+        .buttonContainer {
+            display: flex;
+            gap: 0px !important;
+        }
+
+        .search {
+            border: 1px solid #E7E6EF;
+            color: #3f3f7a;
+            height: 28px !important;
+            width: 162px !important;
+            padding: 0.4rem 0.6rem;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .view {
+        display: flex;
+        gap: 2px !important;
+        align-items: center;
+    }
+}

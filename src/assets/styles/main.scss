@@ -26,11 +26,11 @@ body {
     }
 
     @include mixins.respond-min(xl) {
-        max-width: variables.$screen-max-width-lg;
+        max-width: variables.$screen-max-width-xl;
     }
 
     @include mixins.respond-min(2xl) {
-        max-width: variables.$screen-max-width-lg;
+        max-width: variables.$screen-max-width-xl;
     }
 }
 

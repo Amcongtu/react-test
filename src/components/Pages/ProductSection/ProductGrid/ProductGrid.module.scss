@@ -1,0 +1,29 @@
+@use "../../../../assets/styles/mixins" as mixins;
+
+
+.grid {
+    display: grid;
+    padding: 140px 0;
+    grid-template-columns: repeat(4, minmax(180px, 1fr));
+    column-gap: 2rem;
+    row-gap: 4rem;
+    margin-top: 58px;
+
+    @include mixins.respond-max(xl) {
+        grid-template-columns: repeat(4, minmax(180px, 1fr));
+    }
+
+    @include mixins.respond-max(lg) {
+        grid-template-columns: repeat(3, minmax(160px, 1fr));
+    }
+
+    @include mixins.respond-max(md) {
+        grid-template-columns: repeat(2, minmax(150px, 1fr));
+    }
+
+    @include mixins.respond-max(sm) {
+        grid-template-columns: 1fr;
+        row-gap: 2rem;
+        padding: 0 8px;
+    }
+}
