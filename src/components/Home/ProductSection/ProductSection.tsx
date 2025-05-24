@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import ProductCard from '../ProductCard/ProductCard';
 import styles from './ProductSection.module.scss';
 import type { Product } from '../../../types/product';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useInView } from 'framer-motion';
 
 interface Props {
     title: string;
@@ -16,9 +16,20 @@ const TABS = [
     { label: 'Special Offer', key: 'special_offer' },
 ];
 
+const containerVariants = {
+    hidden: {},
+    show: {
+        transition: {
+            staggerChildren: 0.15,
+        },
+    },
+};
+
 const ProductSection: React.FC<Props> = ({ title, products }) => {
     const [activeTab, setActiveTab] = useState('new_arrival');
     const [visibleCount, setVisibleCount] = useState(6);
+    const sectionRef = useRef(null);
+    const isInView = useInView(sectionRef, { once: true });
 
     const filteredProducts = products.filter((product) =>
         product.tags.includes(activeTab)
@@ -31,7 +42,7 @@ const ProductSection: React.FC<Props> = ({ title, products }) => {
     };
 
     return (
-        <section className={styles.section}>
+        <section className={styles.section} ref={sectionRef}>
             <h2 className={styles.heading}>{title}</h2>
 
             <div className={styles.tabs}>
@@ -41,7 +52,7 @@ const ProductSection: React.FC<Props> = ({ title, products }) => {
                         className={activeTab === tab.key ? styles.activeTab : ''}
                         onClick={() => {
                             setActiveTab(tab.key);
-                            setVisibleCount(6); // reset on tab change
+                            setVisibleCount(6);
                         }}
                     >
                         {tab.label}
@@ -52,11 +63,10 @@ const ProductSection: React.FC<Props> = ({ title, products }) => {
             <AnimatePresence mode="wait">
                 <motion.div
                     key={activeTab}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.3 }}
                     className={styles.grid}
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate={isInView ? 'show' : 'hidden'}
                 >
                     {displayedProducts.map((product) => (
                         <ProductCard key={product.id} product={product} />

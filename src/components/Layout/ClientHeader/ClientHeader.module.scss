@@ -53,7 +53,7 @@
         background-color: white;
 
         @include mixins.respond-max(md) {
-            background-color: variables.$color-primary;;
+            background-color: variables.$color-primary;
             color: white;
         }
 

@@ -26,6 +26,7 @@
         margin-top: 16px;
         display: flex;
         justify-content: space-between;
+        padding-bottom: 4px;
     }
 
     .title {
@@ -36,7 +37,8 @@
 
     .price {
         font-size: 0.875rem;
-        color: #000;
+        color: variables.$color-secondary;
+
 
         .oldPrice {
             color: red;

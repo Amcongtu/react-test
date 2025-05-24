@@ -1,0 +1,111 @@
+@use "../../../assets/styles/variables" as variables;
+@use "../../../assets/styles/mixins" as mixins;
+
+.footer {
+    background-color: #f6f7fb;
+    padding: 60px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #8a8fb9;
+}
+
+.container {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 5fr 3fr 2fr 2fr;
+    gap: 40px;
+
+    @include mixins.respond-max(lg) {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    @include mixins.respond-max(md) {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+
+    @include mixins.respond-max(md) {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #101750;
+    margin-bottom: 20px;
+}
+
+.form {
+    display: flex;
+    margin-bottom: 16px;
+    margin-top: 18px;
+
+    .input {
+        flex: 1;
+        padding: 10px 12px;
+        border: none;
+        border-radius: 4px 0 0 4px;
+        background: #fff;
+        outline: none;
+        height: 40px;
+    }
+
+    .button {
+        padding: 10px 16px;
+        border: none;
+        background-color: #fb2e86;
+        color: white;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+        height: 40px;
+    }
+
+    @include mixins.respond-max(md) {
+        flex-direction: column;
+        width: 100%;
+
+        .input,
+        .button {
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        .button {
+            margin-top: 8px;
+        }
+    }
+}
+
+.contact {
+    line-height: 1.5;
+    color: #8a8fb9;
+}
+
+.title {
+    font-weight: 600;
+    color: #101750;
+    margin-bottom: 12px;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin-top: 36px;
+
+    li {
+        margin-bottom: 8px;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
