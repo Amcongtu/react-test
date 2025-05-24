@@ -1,0 +1,70 @@
+[
+    {
+        "id": 1,
+        "title": "Comfort Handy Craft",
+        "image": "/src/assets/images/baner.png",
+        "price": 42,
+        "oldPrice": 65,
+        "isOnSale": true,
+        "tags": [
+            "new_arrival"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Comfort Handy Craft",
+        "image": "https://cdn.pixabay.com/photo/2015/04/23/22/00/new-year-background-736885_1280.jpg",
+        "price": 42,
+        "oldPrice": 65,
+        "isOnSale": true,
+        "tags": [
+            "best_seller"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Comfort Handy Craft",
+        "image": "https://cdn.pixabay.com/photo/2015/04/23/22/00/new-year-background-736885_1280.jpg",
+        "price": 42,
+        "oldPrice": 65,
+        "isOnSale": true,
+        "tags": [
+            "featured"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Comfort Handy Craft",
+        "image": "https://cdn.pixabay.com/photo/2015/04/23/22/00/new-year-background-736885_1280.jpg",
+        "price": 42,
+        "oldPrice": 65,
+        "isOnSale": true,
+        "tags": [
+            "special_offer"
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Comfort Handy Craft",
+        "image": "https://cdn.pixabay.com/photo/2015/04/23/22/00/new-year-background-736885_1280.jpg",
+        "price": 42,
+        "oldPrice": 65,
+        "isOnSale": true,
+        "tags": [
+            "new_arrival",
+            "special_offer"
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Comfort Handy Craft",
+        "image": "https://cdn.pixabay.com/photo/2015/04/23/22/00/new-year-background-736885_1280.jpg",
+        "price": 42,
+        "oldPrice": 65,
+        "isOnSale": true,
+        "tags": [
+            "best_seller",
+            "featured"
+        ]
+    }
+]

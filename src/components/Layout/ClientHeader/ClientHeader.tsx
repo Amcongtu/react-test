@@ -7,7 +7,7 @@ import { useDisclosure } from "../../../hooks/useDisclosure";
 
 const Header = () => {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
-    const { isOpen: isOpenSearchModal, onOpen: onOpenSearchModal, onClose: onCloseSearchModal, onToggle: onToggleSeachModal } = useDisclosure();
+    const { isOpen: isOpenSearchModal, onClose: onCloseSearchModal, onToggle: onToggleSeachModal } = useDisclosure();
 
     return (
         <>

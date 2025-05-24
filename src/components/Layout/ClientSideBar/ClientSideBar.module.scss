@@ -31,9 +31,6 @@
     transform: translateX(-100%);
     transition: transform 0.3s ease;
 
-    @include mixins.respond-min(md) {
-        display: none;
-    }
 
 }
 
@@ -48,6 +45,12 @@
     border-bottom: 1px solid #dfdada;
 
     padding: 1rem 1.5rem;
+
+    h2 {
+        @include mixins.respond-max(md) {
+            color: variables.$color-primary;
+        }
+    }
 }
 
 .closeIcon {
@@ -73,7 +76,7 @@
 
         &.active {
             font-weight: bold;
-            color: #7E33E0;
+            color: variables.$color-primary;
         }
     }
 

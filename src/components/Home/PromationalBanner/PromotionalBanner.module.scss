@@ -1,0 +1,105 @@
+@use "../../../assets/styles/variables" as variables;
+@use "../../../assets/styles/mixins" as mixins;
+
+.bannerSlide {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 1rem;
+    min-height: 400px;
+    overflow: hidden;
+    padding-left: 0px;
+    padding-right: 0px;
+
+
+    .content {
+        max-width: 700px;
+        margin-top: 180px;
+
+        @include mixins.respond-max(md) {
+            color: rgb(61, 59, 59);
+            margin-top: 90px;
+            color: white;
+        }
+
+        .title {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 1rem 0;
+            color: #1e1e1e;
+
+
+
+            @include mixins.respond-max(md) {
+                color: white;
+                margin: 0;
+                font-size: 36px;
+            }
+        }
+
+        .description {
+            font-size: 1rem;
+            color: #6f6f6f;
+            margin-bottom: 1.5rem;
+            max-width: 530px;
+
+            @include mixins.respond-max(md) {
+                color: white;
+            }
+        }
+    }
+
+    .smallText {
+        font-weight: bold;
+        font-size: 0.9rem;
+        color: variables.$color-primary;
+
+        @include mixins.respond-max(md) {
+            color: white;
+        }
+    }
+
+}
+
+.swiper-pagination-bullet {
+    opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    color: #FB2E86;
+}
+
+
+
+.shopButton {
+    background-color: variables.$color-primary;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.4rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.imageContainer {
+    width: 400px;
+    height: 400px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+
+.discountBadge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #00cfff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    border-radius: 50%;
+    transform: translate(50%, -50%);
+    font-size: 1rem;
+}

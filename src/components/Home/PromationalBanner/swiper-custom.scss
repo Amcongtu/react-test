@@ -1,0 +1,38 @@
+@use "../../../assets/styles/variables" as variables;
+@use "../../../assets/styles/mixins" as mixins;
+
+.swiper-slide {
+  position: relative;
+  height: 764px !important;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  &::before {
+    @include mixins.respond-max(md) {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.35);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+  }
+
+  >* {
+    position: relative;
+    z-index: 2;
+    color: white;
+  }
+
+  @include mixins.respond-max(md) {
+    height: calc(100vh - 62px) !important;
+    transition: transform 4s ease;
+  }
+
+  .swiper-slide.swiper-slide-active {
+    @include mixins.respond-max(md) {
+      transform: scale(1.1);
+    }
+  }
+}
