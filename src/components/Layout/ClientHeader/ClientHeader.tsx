@@ -7,11 +7,14 @@ import { useDisclosure } from "../../../hooks/useDisclosure";
 import { useLocation } from "react-router-dom";
 import routes from "../../../routes";
 import { Link } from "react-router-dom";
+import { useAppSelector } from "../../../store/hooks";
+import { selectCartTotalQuantity } from "../../../store/features/cart/cartSlice";
 
 const Header = () => {
-    const [isSidebarOpen, setSidebarOpen] = useState(false);
-    const { isOpen: isOpenSearchModal, onClose: onCloseSearchModal, onToggle: onToggleSeachModal } = useDisclosure();
     const location = useLocation();
+    const [isSidebarOpen, setSidebarOpen] = useState(false);
+    const totalQuantity = useAppSelector(selectCartTotalQuantity);
+    const { isOpen: isOpenSearchModal, onClose: onCloseSearchModal, onToggle: onToggleSeachModal } = useDisclosure();
 
     const mainLayout = routes.find(r => r.key === "main-layout");
     const navItems = mainLayout?.children?.filter(route => route.name).filter(item => item.isNavBar);
@@ -45,8 +48,11 @@ const Header = () => {
                                     <FaHeart />
                                 </div>
                             </div>
-                            <div>
+                            <div className={styles.cartIcon}>
                                 <FaShoppingCart />
+                                {totalQuantity > 0 && (
+                                    <span className={styles.cartBadge}>{totalQuantity}</span>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -64,7 +70,12 @@ const Header = () => {
                                 <div className={styles.barIconLogoContainerRight}>
                                     <FaSearch onClick={onToggleSeachModal} />
                                     <FaUser />
-                                    <FaShoppingCart />
+                                    <div className={styles.cartIconSmallScreen}>
+                                        <FaShoppingCart />
+                                        {totalQuantity > 0 && (
+                                            <span className={styles.cartBadge}>{totalQuantity}</span>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                             <nav className={styles.nav}>

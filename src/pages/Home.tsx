@@ -8,7 +8,6 @@ const Home = () => {
         <PromotionalBanner />
         <div className="container">
             <ProductSection title="Latest Products" products={sampleProducts} />;
-
         </div>
     </>
 }

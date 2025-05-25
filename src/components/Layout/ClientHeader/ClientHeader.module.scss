@@ -237,4 +237,64 @@
             }
         }
     }
+
+    .cartIcon {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+
+        svg {
+            font-size: 20px;
+            color: inherit;
+        }
+
+        .cartBadge {
+            position: absolute;
+            top: -6px;
+            right: -24px;
+            background-color: #fb2e86;
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 4px;
+            border-radius: 50%;
+            min-width: 18px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+            user-select: none;
+        }
+    }
+
+    .cartIconSmallScreen {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        display: flex;
+
+        .cartBadge {
+            position: absolute;
+            top: -8px;
+            right: -12px;
+            background-color: variables.$color-secondary;
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 4px;
+            border-radius: 50%;
+            min-width: 18px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+            user-select: none;
+        }
+    }
+
+
 }

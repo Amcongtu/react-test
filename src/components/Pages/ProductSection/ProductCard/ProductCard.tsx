@@ -1,16 +1,17 @@
 import styles from "./ProductCard.module.scss"
 
 interface ProductCardProps {
+    id: string;
     title: string;
-    image: string;
+    images: string[];
     price: number;
     oldPrice?: number;
 }
 
-const ProductCard = ({ title, image, price, oldPrice }: ProductCardProps) => {
+const ProductCard = ({ title, images, price, oldPrice }: ProductCardProps) => {
     return (
         <div className={styles.prodcutCard}>
-            <img src={image} alt={title} />
+            <img src={images[0]} alt={title} />
             <h3>{title}</h3>
             <div className={styles.dotContainer}>
                 <div className={styles.yellowDot}></div>

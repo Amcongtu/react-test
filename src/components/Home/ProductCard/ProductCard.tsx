@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './ProductCard.module.scss';
 import type { Product } from '../../../types/product';
@@ -8,6 +8,9 @@ import { LuShoppingCart, LuHeart, } from "react-icons/lu";
 import { LiaSearchPlusSolid } from "react-icons/lia";
 import ProductImageModal from '../../Commons/ProductImageModal/ProductImageModal';
 import { useDisclosure } from '../../../hooks/useDisclosure';
+import { useAppDispatch } from '../../../store/hooks';
+import { addToCart } from '../../../store/features/cart/cartSlice';
+import { toast } from 'react-toastify';
 
 interface Props {
     product: Product;
@@ -19,6 +22,8 @@ const itemVariants = {
 };
 
 const ProductCard: React.FC<Props> = ({ product }) => {
+    const [isAddingToCart, setIsAddingToCart] = useState(false);
+    const dispatch = useAppDispatch();
     const { isOpen: isModalOpen, onClose: onModalClose, onOpen: onModalOpen } = useDisclosure();
 
     const stopLink = (e: React.MouseEvent) => {
@@ -38,9 +43,24 @@ const ProductCard: React.FC<Props> = ({ product }) => {
                     {product.isOnSale && <img src={sale_tag} className={styles.saleBadge} alt="sale" />}
 
                     <div className={styles.iconContainer}>
-                        <LuShoppingCart
-                            onClick={stopLink}
-                        />
+                        <div className={styles.iconWrapper}>
+                            {isAddingToCart ? (
+                                <div className={styles.spinner} />
+                            ) : (
+                                <LuShoppingCart
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
+
+                                        setIsAddingToCart(true);
+                                        dispatch(addToCart({ ...product, quantity: 1 }));
+                                        toast.success('Added to cart successfully!');
+                                        setTimeout(() => setIsAddingToCart(false), 100);
+                                    }}
+                                    className={styles.icon}
+                                />
+                            )}
+                        </div>
                         <LuHeart
                             onClick={stopLink}
                         />
@@ -49,7 +69,7 @@ const ProductCard: React.FC<Props> = ({ product }) => {
                         />
                     </div>
 
-                    <img src={product.image} alt={product.title} className={styles.image} />
+                    <img src={product.images[0]} alt={product.title} className={styles.image} />
 
                     <div className={styles.info}>
                         <p className={styles.title}>{product.title}</p>
@@ -67,7 +87,7 @@ const ProductCard: React.FC<Props> = ({ product }) => {
 
             <ProductImageModal
                 isOpen={isModalOpen}
-                image={product.image}
+                image={product.images[0]}
                 onClose={onModalClose}
             />
         </>

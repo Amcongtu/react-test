@@ -2,7 +2,8 @@ import { useRoutes } from "react-router-dom";
 import routes from "./routes";
 import NProgress from 'nprogress';
 import { useEffect } from "react";
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 NProgress.configure({ showSpinner: false });
 
 export default function App() {
@@ -20,5 +21,6 @@ export default function App() {
 
   return <>
     {element}
+    <ToastContainer position="top-right" autoClose={2000} />
   </>;
 }
