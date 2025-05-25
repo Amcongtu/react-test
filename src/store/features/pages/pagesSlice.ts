@@ -45,5 +45,5 @@ const filterSlice = createSlice({
     },
 });
 
-export const { setPerPage, setSortBy, setView, setSearch } = filterSlice.actions;
+export const { setPerPage, setSortBy, setView, setSearch, setCurrentPage } = filterSlice.actions;
 export default filterSlice.reducer;

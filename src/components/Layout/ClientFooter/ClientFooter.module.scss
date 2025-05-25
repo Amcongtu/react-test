@@ -143,9 +143,5 @@
         font-size: 12px;
         cursor: pointer;
         transition: background-color 0.3s;
-
-        &:hover {
-            background-color: darken(#19146D, 10%);
-        }
     }
 }
