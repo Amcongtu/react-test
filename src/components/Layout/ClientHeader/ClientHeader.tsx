@@ -14,7 +14,7 @@ const Header = () => {
     const location = useLocation();
 
     const mainLayout = routes.find(r => r.key === "main-layout");
-    const navItems = mainLayout?.children?.filter(route => route.name);
+    const navItems = mainLayout?.children?.filter(route => route.name).filter(item => item.isNavBar);
 
     const getFullPath = (path?: string) => {
         if (!path) return "/";

@@ -46,14 +46,14 @@ const Filter = () => {
                         <label>View:</label>
                         <div className={styles.buttonContainer}>
                             <button
-                                className={styles.iconButton}
+                                className={`${styles.iconButton} ${view == 'grid' && styles.active}`}
                                 title="Grid View"
                                 onClick={() => dispatch(setView('grid'))}
                             >
                                 <IoGrid />
                             </button>
                             <button
-                                className={styles.iconButton}
+                                className={`${styles.iconButton} ${view == 'list' && styles.active}`}
                                 title="List View"
                                 onClick={() => dispatch(setView('list'))}
                             >

@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 120px;
+    margin-bottom: 60px;
 
     @include mixins.respond-max(lg) {
         flex-direction: column;
@@ -81,6 +81,10 @@
             align-items: center;
 
             &:hover {
+                color: #ff497c;
+            }
+
+            &.active {
                 color: #ff497c;
             }
         }

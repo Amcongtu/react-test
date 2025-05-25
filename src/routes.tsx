@@ -1,6 +1,7 @@
 import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
 import Pages from "./pages/Pages";
+import PagesDetail from "./pages/PagesDetail";
 
 const routes = [
     {
@@ -14,18 +15,21 @@ const routes = [
                 name: "Home",
                 key: "home",
                 element: <Home />,
+                isNavBar: true,
             },
             {
                 path: "pages",
                 name: "Pages",
                 key: "pages",
                 element: <Pages />,
+                isNavBar: true,
             },
             {
-                path: "dich-vu",
-                name: "Dịch vụ",
-                key: "services",
-                element: <Home />,
+                path: "pages/:id",
+                name: "PagesDetail",
+                key: "pages-detail",
+                element: <PagesDetail />,
+                isNavBar: false,
             },
         ],
     },
@@ -38,3 +42,4 @@ const routes = [
 ];
 
 export default routes;
+
