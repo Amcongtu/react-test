@@ -2,4 +2,8 @@
 
 .productSection {
    padding: 140px 0;
+
+   @include mixins.respond-max(lg) {
+      padding: 60px 16px;
+   }
 }

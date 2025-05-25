@@ -1,10 +1,15 @@
 @use "../../../assets/styles/variables" as variables;
+@use "../../../assets/styles/mixins" as mixins;
 
 .pageHeader {
     background-color: #F6F5FF;
     height: 286px;
     display: flex;
     align-items: center;
+
+    @include mixins.respond-max(lg) {
+        padding: 0 16px;
+    }
 
     >div>h1 {
         font-size: 36px;
