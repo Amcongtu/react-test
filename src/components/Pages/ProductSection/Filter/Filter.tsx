@@ -1,17 +1,24 @@
-import { memo } from "react"
+import { memo, useState, useEffect } from "react"
 import styles from "./Filter.module.scss"
 import { IoGrid, IoList } from "react-icons/io5"
 import { setPerPage, setSortBy, setSearch, setView } from "../../../../store/features/pages/pagesSlice"
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks"
+import { useDebounce } from "../../../../hooks/useDebounce"
 
 const Filter = () => {
     const dispatch = useAppDispatch()
     const { perPage, sortBy, search, view } = useAppSelector(state => state.pages)
+    const [searchTerm, setSearchTerm] = useState(search)
+    const debouncedSearch = useDebounce(searchTerm, 300)
+
+    useEffect(() => {
+        dispatch(setSearch(debouncedSearch))
+    }, [debouncedSearch, dispatch])
 
     return (
         <section className={styles.filter}>
             <div>
-                <h2>Ecommerce Acceories & Fashion item</h2>
+                <h2>Ecommerce Accessories & Fashion item</h2>
                 <span>About 9,620 results (0.62 seconds)</span>
             </div>
             <div>
@@ -67,8 +74,8 @@ const Filter = () => {
                             type="text"
                             className={styles.search}
                             placeholder="Search..."
-                            value={search}
-                            onChange={(e) => dispatch(setSearch(e.target.value))}
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
                         />
                     </div>
                 </div>

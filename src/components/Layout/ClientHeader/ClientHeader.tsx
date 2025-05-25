@@ -64,9 +64,9 @@ const Header = () => {
                         <div className={styles.left}>
                             <div className={styles.barIconLogoContainer}>
                                 <div className={styles.barIcon} onClick={() => setSidebarOpen(!isSidebarOpen)}><FaBars /></div>
-                                <div className={styles.logo}>
+                                <Link to={"/"} className={styles.logo}>
                                     <h1>Hekto</h1>
-                                </div>
+                                </Link>
                                 <div className={styles.barIconLogoContainerRight}>
                                     <FaSearch onClick={onToggleSeachModal} />
                                     <FaUser />

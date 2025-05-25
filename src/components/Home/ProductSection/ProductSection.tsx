@@ -16,7 +16,7 @@ const TABS = [
     { label: 'Special Offer', key: 'special_offer' },
 ];
 
-const containerVariants = {
+export const containerVariants = {
     hidden: {},
     show: {
         transition: {

@@ -1,7 +1,7 @@
 [
     {
         "id": "1",
-        "title": "Comfort Handy Craft",
+        "title": "Wooden Desk Organizer",
         "images": [
             "/src/assets/images/product_1.png"
         ],
@@ -14,11 +14,11 @@
     },
     {
         "id": "2",
-        "title": "Comfort Handy Craft",
+        "title": "Eco-friendly Ceramic Mug",
         "images": [
             "/src/assets/images/product_2.png"
         ],
-        "price": 42,
+        "price": 12,
         "oldPrice": 65,
         "isOnSale": true,
         "tags": [
@@ -28,11 +28,11 @@
     },
     {
         "id": "3",
-        "title": "Comfort Handy Craft",
+        "title": "Vintage Wall Clock",
         "images": [
             "/src/assets/images/product_3.png"
         ],
-        "price": 42,
+        "price": 22,
         "oldPrice": 65,
         "isOnSale": false,
         "tags": [
@@ -43,7 +43,7 @@
     },
     {
         "id": "4",
-        "title": "Comfort Handy Craft",
+        "title": "Handmade Woven Basket",
         "images": [
             "/src/assets/images/product_4.png"
         ],
@@ -59,11 +59,11 @@
     },
     {
         "id": "5",
-        "title": "Comfort Handy Craft",
+        "title": "Minimalist LED Lamp",
         "images": [
             "/src/assets/images/product_5.png"
         ],
-        "price": 42,
+        "price": 55,
         "oldPrice": 65,
         "isOnSale": false,
         "tags": [
@@ -73,11 +73,11 @@
     },
     {
         "id": "6",
-        "title": "Comfort Handy Craft",
+        "title": "Modern Wall Art Canvas",
         "images": [
             "/src/assets/images/product_6.png"
         ],
-        "price": 42,
+        "price": 40,
         "oldPrice": 65,
         "isOnSale": false,
         "tags": [
