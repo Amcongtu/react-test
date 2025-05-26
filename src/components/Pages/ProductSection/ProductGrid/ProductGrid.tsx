@@ -8,7 +8,7 @@ const containerVariants = {
     hidden: {},
     show: {
         transition: {
-            staggerChildren: 0.05,
+            staggerChildren: 0.08,
         },
     },
 };
@@ -49,9 +49,6 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
                             key={item.id}
                             layout
                             variants={itemVariants}
-                            initial="hidden"
-                            animate="show"
-                            exit="exit"
                         >
                             <ProductCard {...item} />
                         </motion.div>
