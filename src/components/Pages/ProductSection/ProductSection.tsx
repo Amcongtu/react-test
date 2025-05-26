@@ -4,7 +4,7 @@ import Filter from "./Filter/Filter"
 import styles from "./ProductSection.module.scss"
 import { useAppSelector } from "../../../store/hooks"
 import type { Product } from "../../../types/product"
-import { SortOptions } from "../../../store/features/pages/page.enum"
+import { SortOptions, ViewModes } from "../../../store/features/pages/page.enum"
 import dummyProducts from "../../../data/products.json"
 
 const ProductSection = () => {
@@ -38,7 +38,11 @@ const ProductSection = () => {
 
     return <div className={`${styles.productSection} container`}>
         <Filter />
-        <ProductGrid products={pagedProducts} />
+        {pagedProducts?.length == 0 && <div>No data</div>}
+        {
+            pages?.view == ViewModes.Grid && <ProductGrid products={pagedProducts} />
+        }
+
     </div>
 }
 
