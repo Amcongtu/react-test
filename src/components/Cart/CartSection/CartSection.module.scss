@@ -10,7 +10,7 @@
     display: grid;
     grid-template-columns: 5fr 2fr;
     gap: 2rem;
-    padding: 2rem;
+    padding: 2rem 0;
     font-family: 'Inter', sans-serif;
 
     @include mixins.respond-max(md) {
