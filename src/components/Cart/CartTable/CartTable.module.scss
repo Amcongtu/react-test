@@ -15,9 +15,14 @@
     gap: 1rem;
 
     @include mixins.respond-max(md) {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-        padding: 0.75rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+        background-color: #f9f9fb;
+        border-radius: 8px;
+        border: 1px solid #eee;
+        gap: 0.75rem;
     }
 }
 
@@ -26,6 +31,10 @@
     font-size: 1.125rem;
     color: variables.$color-secondary;
     margin-bottom: 36px;
+
+    @include mixins.respond-max(md) {
+        display: none;
+    }
 }
 
 .productInfo {
@@ -48,6 +57,17 @@
         font-size: 0.85rem;
         color: #666;
     }
+
+    @include mixins.respond-max(md) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    @include mixins.respond-max(sm) {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
 }
 
 .quantityControl {
@@ -85,8 +105,25 @@
 
 .textLeft {
     text-align: left;
+
+    @include mixins.respond-max(md) {
+        width: 100%;
+    }
 }
 
 .textCenter {
     text-align: center;
+
+    @include mixins.respond-max(md) {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+
+        &::before {
+            content: attr(data-label);
+            font-weight: 600;
+            color: #444;
+        }
+    }
 }
