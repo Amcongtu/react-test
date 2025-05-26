@@ -36,7 +36,7 @@ export default function CartTable({ cart, setCart }: CartTableProps) {
             </div>
             {cart?.length == 0 && <div>No data</div>}
             {cart?.length > 0 && cart.map(item => (
-                <div key={item.id} className={styles.row}>
+                <div key={item.id} className={`${styles.row} ${styles.borderBottom}`}>
                     <div className={styles.textLeft}>
                         <div className={styles.productInfo}>
                             <img src={item.images[0]} alt={item.title} />
@@ -47,7 +47,7 @@ export default function CartTable({ cart, setCart }: CartTableProps) {
                             </div>
                         </div>
                     </div>
-                    <div className={styles.textCenter}>${item.price.toFixed(2)}</div>
+                    <div className={`${styles.textCenter} ${styles.price}`}>${item.price.toFixed(2)}</div>
                     <div className={styles.textCenter}>
                         <div className={styles.quantityControl}>
                             <button onClick={() => decreaseQuantity(item.id)}>-</button>
@@ -55,7 +55,7 @@ export default function CartTable({ cart, setCart }: CartTableProps) {
                             <button onClick={() => increaseQuantity(item.id)}>+</button>
                         </div>
                     </div>
-                    <div className={styles.textCenter}>£{(item.quantity * Number(item.price)).toFixed(2)}</div>
+                    <div className={`${styles.textCenter} ${styles.price}`}>${(item.quantity * Number(item.price)).toFixed(2)}</div>
                 </div>
             ))}
         </div>
