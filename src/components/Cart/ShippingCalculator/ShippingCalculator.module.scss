@@ -1,0 +1,53 @@
+@use "../../../assets/styles/mixins" as mixins;
+@use "../../../assets/styles/variables" as variables;
+
+
+.shippingCalculator {
+    margin-top: 40px;
+    gap: 40px;
+    flex-direction: column;
+    display: flex;
+
+    >h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        color: variables.$color-secondary;
+
+        align-items: center;
+        margin-bottom: 0.75rem;
+    }
+
+    >div {
+        background-color: #F4F4FC;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        border-radius: 6px;
+
+        input {
+            outline: none;
+            border: none;
+            border-bottom: 2px solid #C7CEE4;
+            background-color: transparent;
+            border-radius: 0px;
+        }
+    }
+
+    .btn {
+        background-color: variables.$color-primary;
+        color: white;
+        width: 200px;
+        padding: 0.75rem 1.5rem;
+        font-weight: 600;
+        cursor: pointer;
+        border: none;
+        margin-top: 1rem;
+        font-size: 16px;
+        border-radius: 4px;
+    }
+
+
+}

@@ -12,7 +12,7 @@ const Sidebar = ({ isOpen, onClose }: {
     const navigate = useNavigate();
 
     const layoutRoute = routes.find(route => route.path === "/");
-    const menuItems = layoutRoute?.children?.filter(child => child.name && child.key) || [];
+    const menuItems = layoutRoute?.children?.filter(child => child.name && child.key && child.isNavBar) || [];
 
     const currentPath = location.pathname === "/" ? "" : location.pathname.replace(/^\//, "");
     const activeKey = menuItems.find(item =>

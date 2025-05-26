@@ -56,10 +56,18 @@ const cartSlice = createSlice({
             state.items = [];
             saveCartToLocalStorage(state.items);
         },
+
+        updateCart(state, action: PayloadAction<CartItem[]>) {
+            const data = action.payload;
+            state.items = data;
+            
+            saveCartToLocalStorage(state.items);
+        },
+
     },
 });
 
-export const { addToCart, removeFromCart, updateQuantity, clearCart } =
+export const { addToCart, removeFromCart, updateQuantity, clearCart, updateCart } =
     cartSlice.actions;
 
 export const selectCartTotalQuantity = (state: { cart: CartState }) =>

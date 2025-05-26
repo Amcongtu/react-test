@@ -1,0 +1,85 @@
+@use "../../../assets/styles/mixins" as mixins;
+@use "../../../assets/styles/variables" as variables;
+
+.container {
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+
+    h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        color: variables.$color-secondary;
+
+        align-items: center;
+        margin-bottom: 0.75rem;
+    }
+
+    .cardSummary {
+        background-color: #F4F4FC;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        border-radius: 4px;
+
+        .summaryLine {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1rem;
+            color: #333;
+            padding: 0.75rem 0 0.5rem 0;
+            border-bottom: 2px solid #E8E6F1;
+
+            span:last-child {
+                color: variables.$color-secondary;
+            }
+
+            .label {
+                color: variables.$color-secondary;
+                font-weight: 600;
+            }
+        }
+    }
+
+    .noteContainer {
+        display: flex;
+        gap: 8px;
+        justify-content: left;
+        align-items: center;
+        margin-top: 0.75rem;
+
+        &.green {
+            color: #00c67e;
+        }
+
+        .note {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            color: #8A91AB;
+
+            &.green {
+                color: #00c67e;
+            }
+        }
+
+    }
+
+    .btn {
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        border: none;
+        margin-top: 1rem;
+        font-size: 14px;
+
+        &.green {
+            background-color: #19D16F;
+            color: white;
+        }
+    }
+}

@@ -81,7 +81,9 @@ const Header = () => {
                                 </div>
                             </div>
                             <div className={styles.cartIcon}>
-                                <FaShoppingCart />
+                                <Link to={"/cart"}>
+                                    <FaShoppingCart />
+                                </Link>
                                 {totalQuantity > 0 && (
                                     <span className={styles.cartBadge}>{totalQuantity}</span>
                                 )}

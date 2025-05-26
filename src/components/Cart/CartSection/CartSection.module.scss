@@ -1,0 +1,70 @@
+@use "../../../assets/styles/mixins" as mixins;
+@use "../../../assets/styles/variables" as variables;
+
+
+.container {
+    padding: 140px 0
+}
+
+.cartPage {
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+    gap: 2rem;
+    padding: 2rem;
+    font-family: 'Inter', sans-serif;
+
+    @include mixins.respond-max(md) {
+        grid-template-columns: 1fr;
+    }
+
+    .cardLeft {}
+
+    .cardRight {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .cartAction {
+        margin-top: 1.5rem;
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+        @include mixins.respond-max(md) {
+            flex-direction: column;
+
+            button {
+                width: 100%;
+            }
+        }
+    }
+
+    .btn {
+        background-color: variables.$color-primary;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        font-weight: 600;
+        cursor: pointer;
+        border: none;
+        margin-top: 1rem;
+        font-size: 16px;
+        border-radius: 4px;
+    }
+
+    .note {
+        font-size: 0.85rem;
+        margin: 0.75rem 0;
+
+        &.green {
+            color: #00c67e;
+        }
+    }
+
+    input {
+        padding: 0.5rem;
+        width: 100%;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+}

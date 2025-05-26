@@ -1,4 +1,5 @@
 import MainLayout from "./layouts/MainLayout";
+import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import Pages from "./pages/Pages";
 import PagesDetail from "./pages/PagesDetail";
@@ -29,6 +30,13 @@ const routes = [
                 name: "PagesDetail",
                 key: "pages-detail",
                 element: <PagesDetail />,
+                isNavBar: false,
+            },
+            {
+                path: "cart",
+                name: "Cart",
+                key: "cart",
+                element: <Cart />,
                 isNavBar: false,
             },
         ],
