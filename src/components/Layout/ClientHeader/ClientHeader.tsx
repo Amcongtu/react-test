@@ -62,10 +62,16 @@ const Header = () => {
                 <div className={styles.topbarContainer}>
                     <div className={`${styles.topbar} container`}>
                         <div className={styles.left}>
-                            <FaEnvelope />
-                            <span>mhhasanul@gmail.com</span>
-                            <FaPhone />
-                            <span>(12345)67890</span>
+                            <div>
+                                <FaEnvelope />
+                                <span>mhhasanul@gmail.com</span>
+
+                            </div>
+                            <div>
+                                <FaPhone />
+                                <span>(12345)67890</span>
+
+                            </div>
                         </div>
                         <div className={styles.right}>
                             <div>

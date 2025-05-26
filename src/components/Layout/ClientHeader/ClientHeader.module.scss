@@ -24,6 +24,11 @@
             font-size: 13px;
             color: white;
 
+            .left>div{
+                display: flex;
+                gap: 8px !important;
+                align-items: center;
+            }
             .left,
             .right {
                 display: flex;
