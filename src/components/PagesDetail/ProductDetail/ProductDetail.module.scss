@@ -1,5 +1,13 @@
 @use "../../../assets/styles/mixins" as mixins;
 
+.sectionContainer {
+    padding: 140px 0;
+
+    @include mixins.respond-max(md) {
+        padding: 20px 0;
+    }
+}
+
 .productDetail {
     display: flex;
     gap: 4rem;
@@ -54,7 +62,7 @@
 
         .mainImage {
             img {
-                width: 300px;
+                width: 350px;
                 height: 488px;
                 object-fit: fill;
                 box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
