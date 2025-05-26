@@ -60,7 +60,7 @@ const cartSlice = createSlice({
         updateCart(state, action: PayloadAction<CartItem[]>) {
             const data = action.payload;
             state.items = data;
-            
+
             saveCartToLocalStorage(state.items);
         },
 
@@ -72,5 +72,18 @@ export const { addToCart, removeFromCart, updateQuantity, clearCart, updateCart 
 
 export const selectCartTotalQuantity = (state: { cart: CartState }) =>
     state.cart.items.reduce((total, item) => total + item.quantity, 0);
+
+export const selectCartSubtotal = (state: { cart: CartState }) =>
+    state.cart.items.reduce((subtotal, item) => {
+        return subtotal + item.price * item.quantity;
+    }, 0);
+
+export const selectCartTotal = (state: { cart: CartState }) => {
+    const subtotal = selectCartSubtotal(state);
+    const taxRate = 0.1;
+    const tax = subtotal * taxRate;
+
+    return subtotal + tax;
+};
 
 export default cartSlice.reducer;
