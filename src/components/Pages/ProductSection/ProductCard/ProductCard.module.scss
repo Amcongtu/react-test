@@ -1,4 +1,5 @@
 @use "../../../../assets/styles/variables" as variables;
+@use "../../../../assets/styles/mixins" as mixins;
 
 .prodcutCard {
     text-align: center;
@@ -24,6 +25,11 @@
         opacity: 0;
         transition: all 0.3s ease;
         z-index: 10;
+
+        @include mixins.respond-max(md) {
+            transform: translateY(0);
+            opacity: 1 !important;
+        }
 
         svg {
             font-size: 6px;
@@ -64,6 +70,12 @@
         position: relative;
         width: 24px;
         height: 24px;
+
+        @include mixins.respond-max(md) {
+            transform: translateY(0);
+            opacity: 1 !important;
+        }
+
     }
 
     .spinner {

@@ -1,4 +1,5 @@
 @use "../../../assets/styles/variables" as variables;
+@use "../../../assets/styles/mixins" as mixins;
 
 .card {
     position: relative;
@@ -42,6 +43,12 @@
                 background: #f3f3fd;
             }
         }
+
+        @include mixins.respond-max(md) {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
     }
 
     .iconWrapper {

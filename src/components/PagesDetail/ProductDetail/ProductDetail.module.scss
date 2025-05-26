@@ -1,37 +1,70 @@
+@use "../../../assets/styles/mixins" as mixins;
+
 .productDetail {
     display: flex;
-    gap: 2rem;
-    padding: 140px 0;
+    gap: 4rem;
+    height: 509px;
     background: #f8f8ff;
-    border-radius: 1rem;
+    border-radius: 4px;
     font-family: sans-serif;
+    box-shadow: 0 0 25px 10px #F6F4FD;
+    padding: 12px;
+
+    @include mixins.respond-max(md) {
+        flex-direction: column;
+        height: auto;
+        gap: 2rem;
+        padding: 60px 16px;
+        background-color: white;
+    }
 
     .gallery {
         display: flex;
-        gap: 1rem;
+        gap: 12px;
+
+        @include mixins.respond-max(md) {
+            flex-direction: column;
+            align-items: center;
+        }
 
         .thumbnailList {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 12px;
+
+            @include mixins.respond-max(md) {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
 
             img {
-                width: 60px;
-                height: 60px;
+                width: 151px;
+                height: 155px;
                 object-fit: cover;
-                border-radius: 8px;
                 cursor: pointer;
-                border: 1px solid #ddd;
+                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+                @include mixins.respond-max(md) {
+                    width: 80px;
+                    height: 80px;
+                }
             }
         }
 
         .mainImage {
             img {
                 width: 300px;
-                height: 400px;
-                object-fit: cover;
-                border-radius: 12px;
-                border: 1px solid #ddd;
+                height: 488px;
+                object-fit: fill;
+                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+                cursor: zoom-in;
+
+                @include mixins.respond-max(md) {
+                    width: 100%;
+                    height: auto;
+                    max-width: 300px;
+                }
             }
         }
     }
@@ -42,6 +75,12 @@
         h1 {
             font-size: 1.8rem;
             margin-bottom: 0.5rem;
+            margin-top: 68px;
+
+            @include mixins.respond-max(md) {
+                margin-top: 0;
+                text-align: center;
+            }
         }
 
         .reviews {
@@ -52,6 +91,14 @@
 
             .stars {
                 color: gold;
+            }
+
+            .reviewCount {
+                margin-top: 12px;
+            }
+
+            @include mixins.respond-max(md) {
+                justify-content: center;
             }
         }
 
@@ -70,29 +117,55 @@
                 color: red;
                 text-decoration: line-through;
             }
+
+            @include mixins.respond-max(md) {
+                text-align: center;
+            }
         }
 
         .color {
             margin: 1rem 0;
             font-weight: bold;
+
+            @include mixins.respond-max(md) {
+                text-align: center;
+            }
         }
 
         .addToCart {
-            background: #000;
-            color: #fff;
-            padding: 0.75rem 1.5rem;
+            color: #0D134E;
             border: none;
             border-radius: 0.5rem;
             cursor: pointer;
-            margin-bottom: 1.5rem;
+            margin: 1.5rem auto;
+            display: block;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            @include mixins.respond-max(md) {
+                text-align: center;
+                background-color: #0D134E;
+                color: white;
+                padding: 12px;
+            }
         }
 
         .meta {
             font-size: 0.9rem;
 
             div {
-                margin: 0.25rem 0;
+                margin: 0.75rem 0;
+            }
+
+            @include mixins.respond-max(md) {
+                text-align: center;
             }
         }
+    }
+
+    .activeThumbnail {
+        border: 1px solid #ccc !important;
     }
 }

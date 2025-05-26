@@ -3,7 +3,9 @@
         "id": "1",
         "title": "Wooden Desk Organizer",
         "images": [
-            "/src/assets/images/product_1.png"
+            "/src/assets/images/product_1.png",
+            "/src/assets/images/product_2.png",
+            "/src/assets/images/product_3.png"
         ],
         "price": 42,
         "oldPrice": 65,

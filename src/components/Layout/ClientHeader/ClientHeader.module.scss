@@ -45,6 +45,11 @@
                         gap: 8px;
                     }
                 }
+
+                @include mixins.respond-max(lg) {
+                    gap: 24px;
+                }
+
             }
         }
     }
