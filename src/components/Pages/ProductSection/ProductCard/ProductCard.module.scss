@@ -9,6 +9,54 @@
     gap: 8px;
     align-items: center;
 
+    &.list {
+        flex-direction: row;
+        text-align: left;
+        align-items: flex-start;
+        gap: 16px;
+
+        >div {
+            display: flex;
+            flex-direction: row;
+
+            >div {
+                display: flex;
+                flex-direction: column;
+                padding: 20px 30px;
+                gap: 12px
+            }
+
+            .hidden {
+                display: none;
+            }
+        }
+
+        img {
+            width: 160px;
+            height: 160px;
+        }
+
+        h3 {
+            font-size: 1.125rem;
+        }
+
+        .dotContainer {
+            justify-content: flex-start;
+        }
+
+        .iconContainer {
+            flex-direction: row;
+            position: static;
+            transform: none;
+            opacity: 1;
+        }
+
+        .iconWrapper {
+            width: 28px;
+            height: 28px;
+        }
+    }
+
     &:hover .iconContainer {
         opacity: 1;
         transform: translateY(0);

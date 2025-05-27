@@ -6,6 +6,7 @@ import { useAppSelector } from "../../../store/hooks"
 import type { Product } from "../../../types/product"
 import { SortOptions, ViewModes } from "../../../store/features/pages/page.enum"
 import dummyProducts from "../../../data/products.json"
+import ProductList from "./ProductList/ProductList"
 
 const ProductSection = () => {
     const pages = useAppSelector((state) => state.pages);
@@ -42,6 +43,10 @@ const ProductSection = () => {
         {
             pages?.view == ViewModes.Grid && <ProductGrid products={pagedProducts} />
         }
+        {
+            pages?.view == ViewModes.List && <ProductList products={pagedProducts} />
+        }
+
 
     </div>
 }

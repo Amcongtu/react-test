@@ -15,8 +15,10 @@ const itemVariants = {
     hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 };
-
-const ProductCard = (product: Product) => {
+type ProductCardProps = Product & {
+    mode?: 'grid' | 'list';
+};
+const ProductCard = ({ mode = 'grid', ...product }: ProductCardProps) => {
     const { id, title, images, price, oldPrice } = product
     const [isAddingToCart, setIsAddingToCart] = useState(false);
     const dispatch = useAppDispatch();
@@ -28,55 +30,86 @@ const ProductCard = (product: Product) => {
     };
     return (
         <>
-            <Link to={`/pages/${id}`} className={styles.cardLink}>
+            <Link to={`/pages/${id}`} className={`${styles.prodcutCard} ${styles[mode]}`}>
                 <motion.div
-                    className={styles.prodcutCard}
                     variants={itemVariants}
                     transition={{ type: 'spring', stiffness: 200, damping: 10 }}
-                    whileHover={{ y: -8, boxShadow: '0 10px 20px rgba(0, 0, 0, 0.01)' }}
+                    whileHover={
+                        mode === 'grid'
+                            ? { y: -8, boxShadow: '0 10px 20px rgba(0, 0, 0, 0.01)' }
+                            : { boxShadow: '0 10px 20px rgba(0, 0, 0, 0.01)' }
+                    }
                 >
                     <img src={images[0]} alt={title} />
-                    <div className={styles.iconContainer}>
-                        <div className={styles.iconWrapper}>
-                            {isAddingToCart ? (
-                                <div className={styles.spinner} />
-                            ) : (
-                                <LuShoppingCart
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        e.stopPropagation();
-
-                                        setIsAddingToCart(true);
-                                        dispatch(addToCart({ ...product, quantity: 1 }));
-                                        toast.success('Added to cart successfully!');
-                                        setTimeout(() => setIsAddingToCart(false), 100);
-                                    }}
-                                    className={styles.icon}
-                                />
-                            )}
-                        </div>
-                        <LuHeart
-                            onClick={stopLink}
-                        />
-                        <LiaSearchPlusSolid
-                            onClick={(e) => { stopLink(e); onModalOpen(); }}
-                        />
-                    </div>
-                    <h3>{title}</h3>
-                    <div className={styles.dotContainer}>
-                        <div className={styles.yellowDot}></div>
-                        <div className={styles.pinkDot}></div>
-                        <div className={styles.puppleDot}></div>
-                    </div>
                     <div>
-                        <p className={styles.price}>
-                            ${price.toFixed(2)}{' '}
-                            {oldPrice && (
-                                <span className={styles.oldPrice}>
-                                    ${(oldPrice).toFixed(2)}
-                                </span>
-                            )}
-                        </p>
+                        <div className={`${styles.iconContainer} ${styles.hidden}`}>
+                            <div className={styles.iconWrapper}>
+                                {isAddingToCart ? (
+                                    <div className={styles.spinner} />
+                                ) : (
+                                    <LuShoppingCart
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            e.stopPropagation();
+
+                                            setIsAddingToCart(true);
+                                            dispatch(addToCart({ ...product, quantity: 1 }));
+                                            toast.success('Added to cart successfully!');
+                                            setTimeout(() => setIsAddingToCart(false), 100);
+                                        }}
+                                        className={styles.icon}
+                                    />
+                                )}
+                            </div>
+                            <LuHeart
+                                onClick={stopLink}
+                            />
+                            <LiaSearchPlusSolid
+                                onClick={(e) => { stopLink(e); onModalOpen(); }}
+                            />
+                        </div>
+                        <h3>{title}</h3>
+                        <div className={styles.dotContainer}>
+                            <div className={styles.yellowDot}></div>
+                            <div className={styles.pinkDot}></div>
+                            <div className={styles.puppleDot}></div>
+                        </div>
+                        <div>
+                            <p className={styles.price}>
+                                ${price.toFixed(2)}{' '}
+                                {oldPrice && (
+                                    <span className={styles.oldPrice}>
+                                        ${(oldPrice).toFixed(2)}
+                                    </span>
+                                )}
+                            </p>
+                        </div>
+                        <div className={`${styles.iconContainer}`}>
+                            <div className={styles.iconWrapper}>
+                                {isAddingToCart ? (
+                                    <div className={styles.spinner} />
+                                ) : (
+                                    <LuShoppingCart
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            e.stopPropagation();
+
+                                            setIsAddingToCart(true);
+                                            dispatch(addToCart({ ...product, quantity: 1 }));
+                                            toast.success('Added to cart successfully!');
+                                            setTimeout(() => setIsAddingToCart(false), 100);
+                                        }}
+                                        className={styles.icon}
+                                    />
+                                )}
+                            </div>
+                            <LuHeart
+                                onClick={stopLink}
+                            />
+                            <LiaSearchPlusSolid
+                                onClick={(e) => { stopLink(e); onModalOpen(); }}
+                            />
+                        </div>
                     </div>
                 </motion.div >
             </Link>
