@@ -9,6 +9,15 @@
     gap: 8px;
     align-items: center;
 
+    &.grid {
+        .iconContainer {
+            @include mixins.respond-max(md) {
+                display: none;
+
+            }
+        }
+    }
+
     &.list {
         flex-direction: row;
         text-align: left;
